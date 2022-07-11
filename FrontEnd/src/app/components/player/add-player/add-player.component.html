@@ -1,0 +1,46 @@
+<div  class="container main">
+    <div class="inner" >
+      <h1 class="text-primary">Add Player</h1>
+      <form novalidate #player="ngForm" (ngSubmit)="onSubmit(player)">
+        <div class="form-group divclass">
+          <label for="playerName">Player Name<font color="red">*</font> </label>
+          <input required  type="text" class="form-control" name="playerName" #playerName="ngModel" placeholder="Player Name" ngModel >
+        </div>
+        <div class="form-group divclass">
+          <label for="age">Age<font color="red">*</font></label>
+          <input  required type="number" class="form-control" name="age" placeholder="Age" #age="ngModel" ngModel>
+        </div>
+        <div class="form-group divclass">
+          <label for="Contact">Contact<font color="red">*</font></label>
+          <input  required type="text" class="form-control" name="contactNumber" placeholder="Contact"  #contactNumber="ngModel" ngModel>
+        </div>
+        <div class="form-group divclass">
+          <label for="email">Email <font color="red">*</font></label>
+          <input  required type="email" class="form-control" name="email" placeholder="Email" #email="ngModel" ngModel>
+        </div>
+        <div class="form-group divclass">
+            <label for="gender">Gender <font color="red">*</font></label>
+          <select required  class="form-select" name="gender" #gender="ngModel" ngModel >
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Others">Others</option>
+          </select>
+          </div>
+  
+          <div class="form-group divclass">
+            <label for="sportsName">Sports Name <font color="red">*</font></label>
+          <select required  class="form-select" name="sportsName" #sportsName="ngModel" ngModel >
+            <option value="{{sports['sportsName']}}"  *ngFor="let sports of sport;let i=index">
+              {{sports.sportsName}}
+    
+            </option>
+          </select>
+          </div>
+    
+       
+        <button type="submit" class="btn btn-primary divclass">Submit</button>
+        <button  class="btn btn-primary" (click)="onCancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+   

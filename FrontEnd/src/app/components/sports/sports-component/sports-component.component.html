@@ -1,0 +1,27 @@
+<div class="container main">
+    <div class="inner">
+      <h1 class="text-primary">Sports List</h1>
+      
+      <table class="table table-bordered table-striped table-hover" >
+        <thead>
+        <tr class="text-center">
+          <th>S.No</th>
+          <th>Sports Name</th>
+          <th>No. of Player</th>
+          <th>Sports Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" *ngIf="this.sport==null else elseBlock"><td colspan="7">No Sport to Display</td></tr>
+        <ng-template #elseBlock>
+          <tr class="text-center" *ngFor="let sp of sport;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{sp.sportsName}}</td>
+            <td>{{sp.noOfPlayers}}</td>
+            <td>{{sp.sportsType}}</td>
+          </tr>
+        </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>

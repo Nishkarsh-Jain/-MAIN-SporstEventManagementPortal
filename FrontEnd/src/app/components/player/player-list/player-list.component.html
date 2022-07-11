@@ -1,0 +1,34 @@
+ <div class="container main">
+    <div class="inner">
+      <h1 class="text-primary">Player List</h1>
+      <button class="btn btn-primary mt-2 mb-4" (click)="onAdd()" >Add Player</button>
+      <table class="table table-bordered table-striped table-hover" >
+        <thead>
+        <tr class="text-center">
+          <th>S.No</th>
+          <th>Player Name</th>
+          <th>Age</th>
+          <th>Contact</th>
+          <th>email</th>
+          <th>Gender</th>
+          <th>Sports Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" *ngIf="this.player==null else elseBlock"><td colspan="7">No players to Display</td></tr>
+        <ng-template #elseBlock>
+          <tr class="text-center" *ngFor="let pl of player;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{pl.playerName}}</td>
+            <td>{{pl.age}}</td>
+            <td>{{pl.contactNumber}}</td>
+            <td>{{pl.email}}</td>
+            <td>{{pl.gender}}</td>
+            <td>{{pl.sportsName}}</td>
+            <td> <button class="btn btn-danger" (click)="onDelete(pl.playerId)">Delete</button></td>
+          </tr>
+        </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>

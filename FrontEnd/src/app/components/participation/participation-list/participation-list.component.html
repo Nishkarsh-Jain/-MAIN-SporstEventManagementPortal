@@ -1,0 +1,38 @@
+ <div class="container main">
+    <div class="inner my-1">
+        <h1 class="text-primary">Participation</h1>
+        <button class="btn btn-primary mt-2 mb-4" (click)="onAdd()" >Add Participants</button>
+        <button class="btn btn-primary mt-2 mb-4" (click)="onPend()" >Pending Participants</button>
+        <button class="btn btn-primary mt-2 mb-4" (click)="onAcc()" >Accepted Participants</button>
+        <button class="btn btn-primary mt-2 mb-4" (click)="onRej()" >Rejected Participants</button>
+        <button class="btn btn-primary mt-2 mb-4" (click)="onAll()" >All Participants</button>
+        
+        <h3 class="text-primary"> List</h3> 
+       <table class="table table-bordered table-striped table-hover" >
+           <thead>
+             <tr class="text-center">
+                 <th>S.No</th>
+                 <th>Player Name</th>
+                 <th>Event Name</th>
+                 <th>Sports Name</th>
+                 <th>Action</th>
+             </tr>
+           </thead>
+             <tbody>
+                <tr class="text-center" *ngIf="this.participant==null else elseBlock"><td colspan="7">No Participants to Display</td></tr>
+                <ng-template #elseBlock>
+                 <tr class="text-center" *ngFor="let part of participant;let i=index">
+                   <td>{{i+1}}</td>
+                   <td>{{part.playerName}}</td>
+                   <td>{{part.eventName}}</td>
+                   <td>{{part.sportsName}}</td>
+                   
+                    <td><button type="button" class="btn btn-info" (click)="onDetails(ev.eventName)">See Details</button>&nbsp; 
+                    
+               </tr>
+                </ng-template>
+             </tbody>
+          </table>
+    </div>
+   </div>
+    

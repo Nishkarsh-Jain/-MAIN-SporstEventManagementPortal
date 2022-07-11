@@ -1,0 +1,32 @@
+ <div  class="container main">
+    <div class="inner" >
+      <h1 class="text-primary">Add Participant</h1>
+      <form novalidate #participant="ngForm" (ngSubmit)="onSubmit(participant)">
+        <div class="form-group divclass">
+          <label for="playerName">Player Name<font color="red">*</font> </label>
+          <input required  type="text" class="form-control" name="playerName" #playerName="ngModel" placeholder="Player Name" ngModel >
+        </div>
+        <div class="form-group divclass">
+          <label for="eventName">Event Name<font color="red">*</font></label>
+          <input  required type="text" class="form-control" name="eventName" placeholder="Event Name" #eventName="ngModel" ngModel>
+        </div>
+        <div class="form-group divclass">
+          <label for="sportsName">Sports Name<font color="red">*</font></label>
+          <input  required type="text" class="form-control" name="sportsName" placeholder="Sports Name"  #sportsName="ngModel" ngModel>
+        </div>
+        <div class="form-group divclass">
+            <label for="status">Status<font color="red">*</font></label>
+          <select required  class="form-select" name="status" #status="ngModel" ngModel >
+            <option value="Approved">Approved</option>
+            <option value="Declined">Declined</option>
+            <option value="Pending">Pending</option>
+          </select>
+        </div>
+        
+       
+        <button type="submit" class="btn btn-primary divclass">Submit</button>
+        <button  class="btn btn-primary" (click)="onCancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+    
