@@ -1,0 +1,25 @@
+package com.participation.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.Data;
+
+@Entity
+@Data
+public class ParticipationEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int Participation_id;
+	private int Player_id;
+	private String Player_name;
+	private int Event_id;
+	private String Event_name;
+	private int Sports_id;
+	private String Sports_name;
+	private String Status;
+
+}

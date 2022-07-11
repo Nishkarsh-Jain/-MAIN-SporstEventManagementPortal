@@ -1,0 +1,39 @@
+package com.participation.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.participation.entity.Participation;
+import com.participation.repository.ParticipationRepository;
+
+@Service
+public class ParticipationService {
+
+	@Autowired
+	private ParticipationRepository pr;
+	
+	@Autowired
+	private Participation participation;
+	
+	public String addParticipation(Participation part) {
+		Participation participation=pr.save(part);
+		return participation+" added successfully";
+	}
+	
+	public List<Participation> listAllParticipation() {
+		List<Participation> pList=(List<Participation>) pr.findAll();
+		return pList;
+	}
+	
+	public String updateStatus(@PathVariable("partId") Long partId) {
+		String status=pr.saveById(partId);
+		
+		return status;
+	}
+}
+
+
+

@@ -1,0 +1,62 @@
+package com.participation.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.participation.entity.Participation;
+import com.participation.repository.ParticipationRepository;
+
+@Service
+public class ParticipationService {
+
+	@Autowired
+	private ParticipationRepository pr;
+
+	@Autowired
+	private Participation participation;
+
+	public String addParticipation(Participation part) {
+		Participation participation = pr.save(part);
+		return participation + " added successfully";
+	}
+
+	public List<Participation> listAllParticipation() {
+		List<Participation> pList = (List<Participation>) pr.findAll();
+		return pList;
+	}
+
+	public String updateStatus(@PathVariable("partId") Long partId) {
+		Boolean status = false;
+		if (partId == participation.getParticipationId()) {
+		//	participation=pr.s(partId));
+			status = true;
+		}
+		String result = "Pending";
+		if (status) {
+			result = "Approved";
+		} else {
+			result = "Declined";
+		}
+		return result;
+	}
+
+	public List<Participation> listApprovedParticipations(String status) {
+		List<Participation> aList = pr.findAllByStatus(status);
+		return aList;
+	}
+
+	public List<Participation> listDeclinedParticipations(String status) {
+		List<Participation> dList = pr.findAllByStatus(status);
+		return dList;
+	}
+	
+
+	public List<Participation> listPendingParticipations(String status) {
+		List<Participation> pList = pr.findAllByStatus(status);
+		return pList;
+	}
+
+}

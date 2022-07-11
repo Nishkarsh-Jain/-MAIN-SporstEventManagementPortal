@@ -1,0 +1,28 @@
+package com.participation;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.participation.entities.Participation;
+
+@SpringBootApplication
+@Autowired
+public class ParticipatioMicroserviceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ParticipatioMicroserviceApplication.class, args);
+		private Participation p;
+		
+        p.setParticipation_id(12);
+        p.setEvent_id(1);
+        p.setEvent_name("outdoor");
+        p.setPlayer_id(101);
+        p.setSports_name("Kho-Kho");
+        p.setStatus("200");
+        p.setSports_id(34);
+		 System.out.println(p);
+
+	}
+
+}

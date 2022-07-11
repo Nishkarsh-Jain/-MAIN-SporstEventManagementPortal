@@ -1,0 +1,9 @@
+package com.participation.dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.participation.entities.ParticipationEntity;
+
+public interface ParticipantsRepo extends CrudRepository<ParticipationEntity, Integer> {
+
+}

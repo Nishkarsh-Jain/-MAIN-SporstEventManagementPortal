@@ -1,0 +1,21 @@
+package com.participation.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.participation.entity.Participation;
+import com.participation.repository.ParticipationRepository;
+
+@Service
+public class ParticipationService {
+
+	@Autowired
+	private ParticipationRepository pr;
+	
+	@Autowired
+	private Participation participation;
+	
+	public Participation addParticipation(Participation part) {
+		pr.save(part);
+	}
+}

@@ -1,0 +1,21 @@
+package com.participation;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.participation.entity.ParticipationEntity;
+import com.participation.repository.ParticipantionRepository;
+
+@SpringBootApplication
+
+public class ParticipatioMicroserviceApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(ParticipatioMicroserviceApplication.class, args);
+
+		ParticipantionRepository part = context.getBean(ParticipantionRepository.class);
+	}
+
+}

@@ -1,0 +1,69 @@
+package com.player.controller;
+
+import java.util.List;
+
+import com.player.Feign.authClient;
+import com.player.entity.JwtResponse;
+import com.player.response.ResponseHandler;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.player.entity.Player;
+import com.player.service.PlayerService;
+@CrossOrigin(origins = "http://localhost:4200")
+@RestController
+@Slf4j
+@RequestMapping("/pm")
+public class PlayerController {
+
+	@Autowired
+	private PlayerService ps;
+	@Autowired
+	private authClient auth;
+
+	@PostMapping("/addPlayer")
+	public ResponseEntity<?> addPlayer(@RequestHeader(name="authorization",required = true)String token,@RequestBody Player player) {
+		JwtResponse jwtResponse = auth.verifyToken(token);
+		log.info("Inside addPlayer method of the Player Controller.");
+		log.debug("jwt validity:",jwtResponse.isValid());
+		if(jwtResponse.isValid()) {
+			String  ev = ps.addPlayer(player);
+			return ResponseHandler.generateResponse("Successfully updated user data!", HttpStatus.OK, ev);
+		}
+		else {
+			return ResponseHandler.generateResponse("Token expired", HttpStatus.MULTI_STATUS, null);
+		}
+}
+
+	@DeleteMapping("/deletePlayer/{playerId}")
+	public ResponseEntity<?>  deletePlayer(@RequestHeader(name="authorization",required = true)String token,@PathVariable Long playerId) {
+		JwtResponse jwtResponse = auth.verifyToken(token);
+		log.info("Inside deletePlayer method of the Player Controller.");
+		log.debug("jwt validity:",jwtResponse.isValid());
+		if(jwtResponse.isValid()) {
+			String  ev = ps.deletePlayer(playerId);
+			return ResponseHandler.generateResponse("Successfully updated user data!", HttpStatus.OK, ev);
+		}
+		else {
+			return ResponseHandler.generateResponse("Token expired", HttpStatus.MULTI_STATUS, null);
+		}
+	}
+
+	@GetMapping("/players")
+	public ResponseEntity<?>  listAllPlayers(@RequestHeader(name="authorization",required = true)String token) {
+		log.info("Inside listAllPlayer method of the Player Controller.");
+		JwtResponse jwtResponse = auth.verifyToken(token);
+		log.debug("jwt validity:",jwtResponse.isValid());
+		if(jwtResponse.isValid()) {
+			List<Player>  ev = ps.listAllPlayers();
+			return ResponseHandler.generateResponse("Successfully updated user data!", HttpStatus.OK, ev);
+		}
+		else {
+			return ResponseHandler.generateResponse("Token expired", HttpStatus.MULTI_STATUS, null);
+		}
+	}
+
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ParticipatioMicroservice" />
+        <module name="Player-Microservice" />
+        <module name="Sports-Event-Microservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ParticipatioMicroservice" target="11" />
+      <module name="Player-Microservice" target="11" />
+      <module name="Sports-Event-Microservice" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ParticipatioMicroservice" options="-parameters" />
+      <module name="Player-Microservice" options="-parameters" />
+      <module name="Sports-Event-Microservice" options="-parameters" />
+    </option>
+  </component>
+</project>

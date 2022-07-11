@@ -1,0 +1,19 @@
+package com.participation;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.participation.entities.Participation;
+
+@SpringBootApplication
+public class ParticipatioMicroserviceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ParticipatioMicroserviceApplication.class, args);
+	Participation p=new Participation();
+	
+	System.out.println(p);
+	
+	}
+
+}

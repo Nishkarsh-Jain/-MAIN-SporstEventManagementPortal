@@ -1,0 +1,59 @@
+package com.participation;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.participation.entity.Participation;
+
+@SpringBootTest
+public class ParticipationTest {
+
+	@InjectMocks
+	Participation participation;
+
+	@Test
+	public void testparticipationId() {
+		participation.setParticipationId(1001l);
+		assertEquals(participation.getParticipationId(), 1001l);
+	}
+
+	@Test
+	public void testplayerId() {
+		participation.setPlayerId(10011);
+		assertEquals(participation.getPlayerId(), 10011);
+	}
+
+	@Test
+	public void testPlayerName() {
+		participation.setPlayerName(22);
+
+		assertEquals(participation.getPlayerName(), 22);
+	}
+
+	@Test
+	public void testeventId() {
+		participation.setContactNumber("9876543210");
+		assertEquals(participation.getContactNumber(), "9876543210");
+	}
+
+	@Test
+	public void testeventNamel() {
+		participation.setEmail("manish@gmail.com");
+		assertEquals(participation.getEmail(), "manish@gmail.com");
+	}
+
+	@Test
+	public void testGender() {
+		participation.setGender("Male");
+		assertEquals(participation.getGender(), "Male");
+	}
+
+	@Test
+	public void testSportsName() {
+		participation.setSportsname("Chess");
+		assertEquals(participation.getSportsname(), "Chess");
+	}
+}

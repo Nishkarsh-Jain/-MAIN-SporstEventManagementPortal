@@ -1,0 +1,17 @@
+package com.sports.event;
+
+import org.junit.jupiter.api.DisplayName;
+
+import com.sports.event.controller.SportsEventController;
+
+public class SportsEventControllerTest {
+
+	SportsEventController sportsEventController = new SportsEventController();
+
+	@Test
+	@DisplayName("Checking for EmployeeController - if it is loading or not for @GetMapping")
+	void playerControllerNotNullTest() {
+		assertThat(sportsEventController).isNotNull();
+	}
+
+}

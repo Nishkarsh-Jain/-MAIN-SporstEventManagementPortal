@@ -1,0 +1,20 @@
+package com.participation.entities;
+
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+
+@Component
+@Data
+public class Participation {
+
+	private int Participation_id;
+	private int Player_id;
+	private String Player_name;
+	private int Event_id;
+	private String Event_name;
+	private int Sports_id;
+	private String Sports_name;
+	private String Status;
+
+}

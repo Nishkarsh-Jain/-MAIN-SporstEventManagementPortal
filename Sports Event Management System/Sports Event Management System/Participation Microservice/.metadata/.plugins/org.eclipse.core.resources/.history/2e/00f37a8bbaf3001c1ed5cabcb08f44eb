@@ -1,0 +1,13 @@
+package com.participation.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.participation.dao.ParticipantsRepo;
+
+@Controller
+public class ParticipationController {
+
+	@Autowired
+	private ParticipantsRepo pr;
+}
