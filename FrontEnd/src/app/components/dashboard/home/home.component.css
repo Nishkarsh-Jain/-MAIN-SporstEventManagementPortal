@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+   
+}
+.inner{
+    width: 70%;
+background-color: rgb(255, 208, 0);
+}

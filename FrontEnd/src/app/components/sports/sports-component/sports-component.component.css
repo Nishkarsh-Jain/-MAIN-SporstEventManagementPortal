@@ -1,0 +1,14 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+.inner{
+    width: 70%;
+
+}
+th{
+    background-color:rgb(220, 235, 13);
+}

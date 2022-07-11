@@ -1,0 +1,28 @@
+<div  class="container main" >
+    <div class="inner" >
+    <h1 class="text-info mb-4">Event Details of {{this.event['eventName']}}</h1>
+    <form >
+      <div class="form-group divclass">
+        <label for="id">Event Id</label>
+        <input required  type="number"  value="{{this.event['eventId']}}" class="form-control" readonly >
+      </div>
+      <div class="form-group divclass">
+        <label for="name">Event Name</label>
+        <input required  type="text"  value="{{this.event['eventName']}}"  class="form-control" readonly >
+      </div>
+      <div class="form-group divclass">
+        <label for="eventDate">Event Date </label>
+        <input  required type="text"   value="{{this.event.eventDate}}" class="form-control"  readonly>
+      </div>
+      <div class="form-group divclass">
+        <label for="slots">No. of slots </label>
+        <input  required type="number" value="{{this.event['noofSlots']}}" class="form-control"  readonly>
+      </div>
+      <div class="form-group divclass">
+        <label for="name">Sports Name</label>
+        <input required  type="text"  value="{{this.event.sportsName}}"  class="form-control" readonly >
+      </div>
+      </form>
+        
+</div>
+</div>

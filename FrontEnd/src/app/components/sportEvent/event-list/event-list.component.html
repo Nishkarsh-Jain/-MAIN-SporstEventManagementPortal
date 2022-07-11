@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event List</title>
+</head>
+<body>
+  
+  <div class="container main">
+    <div class="inner my-5">
+      
+        <h1 class="text-dark "><u>Event</u></h1>
+        <button class="btn btn-danger mt-2 mb-4" (click)="onAdd()" >Add Event</button>
+ 
+        <h3 class="text-primary mt-3"><u>Event List</u></h3>
+       
+       <table class="table table-bordered table-striped table-hover" >
+           <thead>
+             <tr class="text-center">
+                 <th>S.No</th>
+                 <th>Event Name</th>
+                 <th>Actions</th>
+             </tr>
+           </thead>
+             <tbody>
+                <tr class="text-center" *ngIf="this.event==null else elseBlock"><td colspan="7">No Events to Display</td></tr>
+                <ng-template #elseBlock>
+                 <tr class="text-center" *ngFor="let ev of event;let i=index">
+                   <td>{{i+1}}</td>
+                   <td>{{ev.eventName}}</td>
+                   <td><button type="button" class="btn btn-info" (click)="onDetails(ev.eventName)">See Details</button>&nbsp;
+                    <button class="btn btn-danger" (click)="onDelete(ev.eventId)">Delete</button></td>
+               </tr>
+                </ng-template>
+             </tbody>
+          </table>
+    </div>
+   </div>
+   
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+
+body, html {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .container {
+    /* The image used */
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20220217/pngtree-colorful-sports-theme-background-material-image_944423.jpg");
+  
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

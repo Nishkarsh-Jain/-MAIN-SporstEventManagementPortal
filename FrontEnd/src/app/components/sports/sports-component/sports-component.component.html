@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports List</title>
+</head>
+<body>
+
+  <div class="container main">
+    <div class="inner my-5">
+      <h1 class="text-dark"><u>Sports List</u></h1>
+      
+      <table class="table table-bordered table-striped table-hover mt-4" >
+        <thead>
+        <tr class="text-center">
+          <th>S.No</th>
+          <th>Sports Name</th>
+          <th>No. of Player</th>
+          <th>Sports Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" *ngIf="this.sport==null else elseBlock"><td colspan="7">No Sport to Display</td></tr>
+        <ng-template #elseBlock>
+          <tr class="text-center" *ngFor="let sp of sport;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{sp.sportsName}}</td>
+            <td>{{sp.noOfPlayers}}</td>
+            <td>{{sp.sportsType}}</td>
+          </tr>
+        </ng-template>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
+
